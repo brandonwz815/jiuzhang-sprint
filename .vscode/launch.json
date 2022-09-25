@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch UsingPrefixSum",
+            "request": "launch",
+            "mainClass": "ch4.lc406_minimum_size_subarray_sum.UsingPrefixSum",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch O_n_square",
+            "request": "launch",
+            "mainClass": "ch4.lc406_minimum_size_subarray_sum.O_n_square",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch MinimumSizeBF",
+            "request": "launch",
+            "mainClass": "ch4.lc406_minimum_size_subarray_sum.MinimumSizeBF",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch MinimumSizeBF",
+            "request": "launch",
+            "mainClass": "ch4.lintcode406_minimum_size_subarray_sum.MinimumSizeBF",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch O_n_square",
+            "request": "launch",
+            "mainClass": "ch4.lintcode406_minimum_size_subarray_sum.O_n_square",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch UsingPrefixSum",
+            "request": "launch",
+            "mainClass": "lintcode406_minimum_size_subarray_sum.UsingPrefixSum",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Launch UsingPrefixSum",
+            "request": "launch",
+            "mainClass": "lintcode406_minimum_size_subarray_sum.UsingPrefixSum",
+            "projectName": "jiuzhang_842bd9c2"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch MinimumSizeBF",
+            "request": "launch",
+            "mainClass": "lintcode406.MinimumSizeBF",
+            "projectName": "jiuzhang_842bd9c2"
+        },
+        {
+            "type": "java",
+            "name": "Launch UsingPrefixSum",
+            "request": "launch",
+            "mainClass": "lintcode406.UsingPrefixSum",
+            "projectName": "jiuzhang_842bd9c2"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "shortest_subarray.Solution",
+            "projectName": "jiuzhang_842bd9c2"
+        }
+    ]
+}
