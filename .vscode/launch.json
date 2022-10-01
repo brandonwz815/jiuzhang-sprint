@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "ch6.lc1849_grumpy_bookstore_owner.Solution",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
             "name": "Launch UsingPrefixSum",
             "request": "launch",
             "mainClass": "ch4.lc406_minimum_size_subarray_sum.UsingPrefixSum",
