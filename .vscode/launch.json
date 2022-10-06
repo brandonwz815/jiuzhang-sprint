@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MaxTreeMS",
+            "request": "launch",
+            "mainClass": "ch27.lc126_max_tree.MaxTreeMS",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaxTree",
+            "request": "launch",
+            "mainClass": "ch27.lc126_max_tree.MaxTree",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "ch25.lc1852_final_discount_price.Solution",
+            "projectName": "jiuzhang-sprint_34377485"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution",
             "request": "launch",
             "mainClass": "ch6.lc1849_grumpy_bookstore_owner.Solution",
