@@ -1,4 +1,4 @@
-package ch22.lc805_maximum_association_set;
+package ch22_unionfind.lc805_maximum_association_set;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -20,10 +20,13 @@ class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         System.out.println(solution.maximumAssociationSet(
-            new String[]{"a","b","d","e","f"}, 
-            new String[]{"b","c","e","g","g"}));
+                new String[] { "abc", "abc", "abc" },
+                new String[] { "bcd", "acd", "def" })); // ["abc","acd","bcd","def"]
+        System.out.println(solution.maximumAssociationSet(
+                new String[] { "a", "b", "d", "e", "f" },
+                new String[] { "b", "c", "e", "g", "g" })); // [d, e, f, g]
     }
-    
+
     public List<String> maximumAssociationSet(String[] ListA, String[] ListB) {
 
         Map<String, Set<String>> graph = this.createAdjacencyList(ListA, ListB);

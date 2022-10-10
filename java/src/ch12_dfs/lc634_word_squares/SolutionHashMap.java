@@ -1,15 +1,34 @@
-package ch12.lc634_word_squares;
+package ch12_dfs.lc634_word_squares;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WordSquares {
+/**
+ * https://www.jiuzhang.com/solutions/word-squares
+ * 
+ * DFS with HashMap "prefixToWords"
+ * 
+ * Time complexity:
+ * Space complexity:
+ * 
+ */
+public class SolutionHashMap {
+
+    public static void main(String[] args) {
+        SolutionHashMap solution = new SolutionHashMap();
+
+        System.out.println(solution.wordSquares(
+                new String[] { "area", "lead", "wall", "lady", "ball" })); // [["wall","area","lead","lady"],["ball","area","lead","lady"]]
+
+        System.out.println(solution.wordSquares(
+                new String[] { "abat", "baba", "atan", "atal" })); // [["baba","abat","baba","atan"],["baba","abat","baba","atal"]]
+    }
 
     public List<List<String>> wordSquares(String[] words) {
         Map<String, List<String>> prefixToWords = getPrefixToWords(words);
-        List<List<String>> squares = new ArrayList<>();
+        List<List<String>> squares = new ArrayList<>(words[0].length());
         for (String word : words) {
             List<String> currentSquare = new ArrayList<>();
             currentSquare.add(word);
@@ -18,22 +37,25 @@ public class WordSquares {
         return squares;
     }
 
-    private void search(Map<String, List<String>> prefixToWords, List<String> currentSquare,
+    private void search(
+            Map<String, List<String>> prefixToWords,
+            List<String> currentSquare,
             List<List<String>> squares) {
-        int currentIndex = currentSquare.size();
-        if (currentIndex == squares.size()) {
+        int currentRows = currentSquare.size();
+        if (currentRows == currentSquare.get(0).length()) { // aka rows == cols
             squares.add(new ArrayList<>(currentSquare)); // ATTN use new ArrayList<>()
         } else {
+
             /*
-             * ATTN pruning
+             * ATTN pruning for optimization
              * Use two for this 2D matrix
              * The outer loop iterates over columns of currentSquare
              * the inner loop iterates over rows currentSquare
              */
-            for (int i = currentIndex; i < squares.size(); i++) { 
+            for (int i = 0; i < currentRows; i++) {
                 StringBuilder sb = new StringBuilder();
-                for (int j = 0; j < currentIndex; j++) {
-                    sb.append(currentSquare.get(j).charAt(i));
+                for (int j = 0; j < currentRows; j++) {
+                    sb.append(currentSquare.get(j).charAt(currentRows));
                 }
                 if (!prefixToWords.containsKey(sb.toString())) {
                     return;
@@ -41,11 +63,12 @@ public class WordSquares {
             }
 
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < currentIndex; i++) {
-                sb.append(currentSquare.get(i).charAt(currentIndex));
+            for (int i = 0; i < currentRows; i++) {
+                sb.append(currentSquare.get(i).charAt(currentRows));
             }
             String prefix = sb.toString();
-            List<String> words = prefixToWords.get(prefix);
+
+            List<String> words = prefixToWords.getOrDefault(prefix, new ArrayList<>()); // ATTN
             for (String word : words) {
                 currentSquare.add(word);
                 search(prefixToWords, currentSquare, squares);
@@ -60,12 +83,12 @@ public class WordSquares {
             for (int i = 0; i < word.length(); i++) {
                 String prefix = word.substring(0, i + 1);
                 if (!prefixToWords.containsKey(prefix)) {
-                    prefixToWords.put(prefix, new ArrayList<String>());
-                } else {
-                    prefixToWords.get(prefix).add(word);
+                    prefixToWords.put(prefix, new ArrayList<>());
                 }
+                prefixToWords.get(prefix).add(word);
             }
         }
         return prefixToWords;
     }
+
 }

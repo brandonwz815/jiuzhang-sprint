@@ -3,9 +3,9 @@ package lintcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UnionFind {
-    private Map<Integer, Integer> fathers;
-    private Map<Integer, Integer> sizeOfSets;
+public class UnionFind<T> {
+    private Map<T, T> fathers;
+    private Map<T, Integer> sizeOfSets;
     private int numberOfSets;
 
     public UnionFind() {
@@ -13,9 +13,9 @@ public class UnionFind {
         sizeOfSets = new HashMap<>();
     }
 
-    public void merge(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
+    public void merge(T x, T y) {
+        T rootX = find(x);
+        T rootY = find(y);
         if (rootX != rootY) {
             fathers.put(rootX, rootY);
             numberOfSets--;
@@ -23,23 +23,23 @@ public class UnionFind {
         }
     }
 
-    public int find(Integer x) {
-        Integer node = x;
-        // while (fathers.containsKey(node)) {  // ATTN ensure that node/root is not null
+    public T find(T x) {
+        T node = x;
+        // while (fathers.containsKey(node)) { // ATTN ensure that node/root is not null
         while (fathers.get(node) != null) {
             node = fathers.get(node);
         }
-        Integer root = node;
+        T root = node;
 
-        while (x != root) {
-            Integer currentFather = fathers.get(x);
+        while (!x.equals(root)) {
+            T currentFather = fathers.get(x);
             fathers.put(x, root);
             x = currentFather;
         }
         return root;
     }
 
-    public void add(int x) {
+    public void add(T x) {
         if (!fathers.containsKey(x)) {
             fathers.put(x, null);
             sizeOfSets.put(x, 1);
@@ -47,15 +47,16 @@ public class UnionFind {
         }
     }
 
-    public boolean isConnected(int x, int y) {
-        return find(x) == find(y);
+    public boolean isConnected(T x, T y) {
+        return find(x).equals(find(y));
     }
 
     public int getNumberOfSets() {
         return numberOfSets;
     }
 
-    public int getSizeOfSets(int x) {
+    public Integer getSizeOfSets(T x) {
         return sizeOfSets.get(find(x));
     }
+    
 }
